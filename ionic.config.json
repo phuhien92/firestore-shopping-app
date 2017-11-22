@@ -1,0 +1,8 @@
+{
+  "name": "firestore-shopping",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
