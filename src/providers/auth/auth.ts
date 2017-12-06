@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import {
@@ -20,8 +19,8 @@ export class AuthProvider {
     
   }
 
-  loginUser(email: string): Promise<void> {
-    return this.afAuth.auth.sendPasswordResetEmail(email);
+  loginUser(email: string, password: string): Promise<void> {
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
   logoutUser(): Promise<void> {
@@ -69,5 +68,9 @@ export class AuthProvider {
     };
 
     return userCollection.add(regularUser);
+  }
+
+  resetPassword(email: string): Promise<void> {
+    return this.afAuth.auth.sendPasswordResetEmail(email);
   }
 }
